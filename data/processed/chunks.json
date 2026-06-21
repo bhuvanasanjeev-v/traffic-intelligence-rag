@@ -1,0 +1,17 @@
+[
+    {
+        "chunk_id": 0,
+        "source": "data/raw/junction_data.xlsx",
+        "text": "MUNICIPAL INFRASTRUCTURE STANDARD OPERATING PROCEDURES (SOP)\nDocument ID: SOP-SAFE-2025-V3\nSubject: Pedestrian Safety and Signalized Junction Compliance\n \n1. PEDESTRIAN CROSSING TIMING POLICIES\nAll signalized intersections operating within municipal limits must maintain a minimum pedestrian walk clearance interval. The standard calculation for the pedestrian clearance interval (Flashing Don't Walk) is based on a walking speed of 3.5 feet per second (fps) across the total width of the crosswalk.\n"
+    },
+    {
+        "chunk_id": 1,
+        "source": "data/raw/junction_data.xlsx",
+        "text": ") is based on a walking speed of 3.5 feet per second (fps) across the total width of the crosswalk.\n \n2. HIGH-ACCIDENT LOCATION (HAL) PROTOCOLS\nAny intersection that records more than 5 vehicular collisions or 2 pedestrian-related incidents within a 12-month calendar window is automatically designated as a High-Accident Location (HAL). \n \nMandatory Actions for HAL Intersections:\n1. Immediate physical site audit by a certified Traffic Safety Engineer within 14 business days.\n2. Implementation of "
+    },
+    {
+        "chunk_id": 2,
+        "source": "data/raw/junction_data.xlsx",
+        "text": "cal site audit by a certified Traffic Safety Engineer within 14 business days.\n2. Implementation of Leading Pedestrian Intervals (LPI), giving pedestrians a 3-to-7 second head start before vehicular traffic gets a green light.\n3. Review of night-time visibility and street lighting lumens.\n"
+    }
+]

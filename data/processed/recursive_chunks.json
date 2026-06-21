@@ -1,0 +1,26 @@
+[
+    {
+        "chunk_id": 0,
+        "source": "data/raw/road_safety.docx",
+        "document_type": "traffic_report",
+        "text": "SMART CITY TRAFFIC PERFORMANCE REPORT 2026 \nPrepared By: Urban Mobility Analytics Division \nPublished: January 2026 \n \n1. EXECUTIVE SUMMARY \n \nThis report evaluates traffic performance across major corridors in the city during the 2025 \ncalendar year. The study focuses on congestion levels, travel times, accident rates, and \nintelligent transportation system deployments. \nKey findings include: \n• Average city-wide traffic volume increased by 12%. \n• Peak-hour congestion increased by 8%. \n• Travel times increased by 6% in central business districts. \n• AI-based adaptive traffic signal systems reduced delays by up to 18%. \n \n2. TRAFFIC VOLUME ANALYSIS \n \nDaily traffic counts were collected using roadside sensors and camera systems. \nTable 1: Average Daily Vehicle Counts \nCentral Avenue: 48,500 vehicles/day \nMetro Avenue: 52,200 vehicles/day \nRing Road: 64,800 vehicles/day \nAirport Corridor: 38,900 vehicles/day \nMorning Peak Period: \n07:00 AM – 09:00 AM \nEvening Peak Period:"
+    },
+    {
+        "chunk_id": 1,
+        "source": "data/raw/road_safety.docx",
+        "document_type": "traffic_report",
+        "text": "Morning Peak Period: \n07:00 AM – 09:00 AM \nEvening Peak Period: \n05:00 PM – 07:00 PM \nThe highest peak-hour volume was recorded on Ring Road with approximately 6,400 \nvehicles per hour. \n \n3. CONGESTION HOTSPOTS \n \nThe following intersections experienced severe congestion: \nA. Metro Ave & 5th Street \nLevel of Service: E \nAverage Vehicle Delay: \n95 seconds per vehicle \nQueue Length: \n420 meters during evening peak \nPrimary Cause: \nCommercial development and increased pedestrian crossings. \nB. Central Ave & Park Junction \nLevel of Service: D \nAverage Vehicle Delay: \n62 seconds per vehicle \nQueue Length: \n280 meters \nPrimary Cause: \nHigh bus volumes and frequent curbside parking activity. \n \n4. ROAD SAFETY ANALYSIS \n \nA total of 2,184 traffic incidents were reported during 2025. \nSeverity Breakdown: \nMinor Incidents: \n1,624 \nMajor Incidents: \n486 \nFatal Incidents: \n74 \nThe majority of incidents occurred between 06:00 PM and 09:00 PM. \nTop Accident Locations: \n1. Ring Road Exit 7"
+    },
+    {
+        "chunk_id": 2,
+        "source": "data/raw/road_safety.docx",
+        "document_type": "traffic_report",
+        "text": "Top Accident Locations: \n1. Ring Road Exit 7 \n2. Metro Ave & 5th Street \n3. Airport Corridor Interchange \n \n5. INTELLIGENT TRANSPORTATION SYSTEMS \n \nSeveral smart transportation initiatives were deployed. \nAdaptive Traffic Signal Control (ATSC) \nDeployment Locations: \n• Metro Avenue \n• Central Avenue \n• Ring Road \nResults: \nAverage Delay Reduction: \n18% \nAverage Travel Time Reduction: \n11% \nFuel Consumption Reduction: \n7% \nThe ATSC system uses AI-based prediction models to dynamically adjust signal timing \nbased on real-time traffic demand. \n \n6. PUBLIC TRANSPORT PERFORMANCE \n \nBus Operations: \nAverage Daily Ridership: \n412,000 passengers \nAverage Bus Speed: \n24 km/h \nOn-Time Performance: \n87% \nMetro Operations: \nAverage Daily Ridership: \n610,000 passengers \nOn-Time Performance: \n94% \n \n7. RECOMMENDATIONS \n \n1. Expand adaptive signal control to all major corridors. \n2. Introduce AI-powered congestion prediction systems. \n3. Upgrade roadside camera infrastructure."
+    },
+    {
+        "chunk_id": 3,
+        "source": "data/raw/road_safety.docx",
+        "document_type": "traffic_report",
+        "text": "2. Introduce AI-powered congestion prediction systems. \n3. Upgrade roadside camera infrastructure. \n4. Improve pedestrian crossing management at high-volume intersections. \n5. Increase public transport capacity during peak periods. \n \n8. CONCLUSION \n \nThe city continues to experience growing transportation demand. Intelligent transportation \ntechnologies have demonstrated measurable improvements in traffic flow and safety. \nContinued investment in AI-driven traffic management is recommended to support future \nmobility needs."
+    }
+]

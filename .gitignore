@@ -1,0 +1,19 @@
+# Environment
+rag_env/
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
