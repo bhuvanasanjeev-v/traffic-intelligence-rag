@@ -4,12 +4,19 @@ import numpy as np
 
 def create_faiss_index(embeddings):
 
+    embeddings = np.asarray(embeddings, dtype=np.float32)
+
+    if embeddings.ndim != 2 or embeddings.shape[0] == 0:
+        raise ValueError(
+            "Embeddings must be a non-empty 2D array."
+        )
+
     dimension = embeddings.shape[1]
 
     index = faiss.IndexFlatIP(dimension)
 
     index.add(
-        np.array(embeddings, dtype=np.float32)
+        embeddings
     )
 
     return index

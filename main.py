@@ -16,6 +16,12 @@ from app.vectorstore.faiss_store import create_faiss_index, search_index
 from llm.llm_factory import LLMRunnerFactory
 from llm.prompt_loader import load_prompt_template
 
+from app.retrieval.retriever import retrieve_documents
+from app.utils.source_utils import get_sources
+from app.utils.context_builder import build_context
+from app.utils.prompt_builder import build_prompt
+from app.utils.generate_answer import generate_answer
+
 import json
 
 text = load_pdf(
@@ -29,7 +35,9 @@ print(text[:2000])
 def create_chunk_documents(
     chunks,
     source_file,
-    document_type="traffic_report"
+    document_type,
+    site,
+    year
 ):
     documents = []
 
@@ -39,6 +47,8 @@ def create_chunk_documents(
                 "chunk_id": idx,
                 "source": source_file,
                 "document_type": document_type,
+                "site": site,
+                "year": year,
                 "text": chunk
             }
         )
@@ -52,7 +62,10 @@ def create_chunk_documents(
 chunks = recursive_chunk_text(text)
 documents = create_chunk_documents(
     chunks,
-    "data/raw/road_safety.docx"
+    source_file="road_safety_new.pdf",
+    document_type="road_safety",
+    site="Junction_B",
+    year=2025
 )
 
 with open(
@@ -71,85 +84,41 @@ text_chunks = [
     doc["text"]
     for doc in documents
 ]
-embeddings = generate_embeddings(text_chunks)
-index = create_faiss_index(
-    embeddings
-)
+
 query = input(
     "\nAsk your question here: "
 )
-query_embedding = generate_embeddings(
-    [query]
-)
-print("\nQuery:")
-print(query)
 
-print("\nFirst 10 values of query embedding:")
-print(query_embedding[0][:10])
-scores, indices = search_index(
-    index,
-    query_embedding,
-    top_k=3
+retrieved_docs = retrieve_documents(
+    query,
+    documents,
+    generate_embeddings,
+    filters={
+        "site": "Junction_C"
+    }
 )
 
-print("\nRetrieved Chunks",indices,scores)
-print("=" * 50)
-
-retrieved_docs = []
-
-for idx in indices[0]:
-    print("\n")
-    print(documents[idx]["text"])
-    retrieved_docs.append(documents[idx]    )
-
-context = "\n\n".join(
-    doc["text"]
-    for doc in retrieved_docs
+context = build_context(
+    retrieved_docs
 )
-prompt_template = load_prompt_template("rag_answer_prompt.txt")
-prompt = prompt_template.format(
-    context=context,
-    query=query
-)
-print("prompt is: ", prompt)
-llm_runner = LLMRunnerFactory.create_runner("gemini")
-answer = llm_runner.run_prompt(prompt)
 
-print("\nLLM Answer:")
+prompt = build_prompt(
+    "rag_answer_prompt.txt",
+    context,
+    query
+)
+
+answer = generate_answer(
+    prompt
+)
+
+sources = get_sources(
+    retrieved_docs
+)
+
+print("\nAnswer:")
 print(answer)
 
 print("\nSources:")
-print("=" * 50)
-
-for doc in retrieved_docs:
-    print(
-        f"{doc['source']} "
-        f"(Chunk {doc['chunk_id']})"
-    )
-
-sources = set()
-
-for doc in retrieved_docs:
-    sources.add(doc["source"])
-
-print("\nSources Used:")
-
 for source in sources:
     print(source)
-
-for doc, embedding in zip(
-    documents,
-    embeddings
-):
-    doc["embedding"] = embedding.tolist()
-
-with open(
-    "data/processed/chunks_with_embeddings.json",
-    "w"
-) as f:
-    json.dump(
-        documents,
-        f,
-        indent=2
-    )
-
