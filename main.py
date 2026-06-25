@@ -17,6 +17,9 @@ from llm.llm_factory import LLMRunnerFactory
 from llm.prompt_loader import load_prompt_template
 
 from app.retrieval.retriever import retrieve_documents
+from app.retrieval.bm25_retriever import bm25_search
+from app.retrieval.hybrid_retriever import hybrid_retrieve
+
 from app.utils.source_utils import get_sources
 from app.utils.context_builder import build_context
 from app.utils.prompt_builder import build_prompt
@@ -89,13 +92,30 @@ query = input(
     "\nAsk your question here: "
 )
 
-retrieved_docs = retrieve_documents(
+filters = {
+    "site": "Junction_B"
+}
+
+faiss_retrieved_docs = retrieve_documents(
     query,
     documents,
     generate_embeddings,
-    filters={
-        "site": "Junction_C"
-    }
+    top_k=5,
+    filters=filters
+)
+
+bm25_docs = bm25_search(
+    query,
+    documents,
+    top_k=5,
+    filters=filters
+)
+
+retrieved_docs = hybrid_retrieve(
+    query,
+    faiss_retrieved_docs,
+    bm25_docs,
+    top_k=5
 )
 
 context = build_context(

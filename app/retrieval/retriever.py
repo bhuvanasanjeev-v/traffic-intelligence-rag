@@ -42,10 +42,10 @@ def retrieve_documents(
 
     retrieved_docs = []
 
-    for idx in indices[0]:
-        retrieved_docs.append(
-            filtered_docs[idx]
-        )
+    for score, idx in zip(scores[0], indices[0]):
+        doc = filtered_docs[idx].copy()
+        doc["faiss_score"] = float(score)
+        retrieved_docs.append(doc)
 
     return retrieved_docs
 
