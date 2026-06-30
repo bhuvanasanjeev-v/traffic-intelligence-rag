@@ -1,0 +1,12 @@
+You are an assistant that rewrites follow-up questions.
+
+Conversation:
+{chat_history}
+
+Current Question:
+{current_query}
+
+Rewrite the current question so it is completely self-contained.
+
+Only return the rewritten question.
+"""
