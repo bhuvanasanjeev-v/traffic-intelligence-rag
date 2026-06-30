@@ -1,28 +1,46 @@
-from sentence_transformers import CrossEncoder
+# MODEL_NAME = "BAAI/bge-reranker-base"
+# _model = None
 
-model = CrossEncoder(
-    "BAAI/bge-reranker-base"
-)
 
-def rerank_documents(
-        query,
-        documents,
-        top_k=3):
+# def get_reranker_model():
+#     global _model
 
-    pairs = [
-        (query, doc["text"])
-        for doc in documents
-    ]
+#     if _model is None:
+#         from sentence_transformers import CrossEncoder
 
-    scores = model.predict(pairs)
+#         _model = CrossEncoder(MODEL_NAME)
 
-    ranked = sorted(
-        zip(documents, scores),
-        key=lambda x: x[1],
-        reverse=True
-    )
+#     return _model
 
-    return [
-        doc
-        for doc, score in ranked[:top_k]
-    ]
+
+# def rerank_documents(
+#         query,
+#         documents,
+#         top_k=3):
+
+#     if not documents:
+#         return []
+
+#     model = get_reranker_model()
+
+#     pairs = [
+#         (query, doc["text"])
+#         for doc in documents
+#     ]
+
+#     scores = model.predict(pairs)
+
+#     ranked = sorted(
+#         zip(documents, scores),
+#         key=lambda x: x[1],
+#         reverse=True
+#     )
+
+#     reranked_docs = []
+
+#     for doc, score in ranked[:top_k]:
+#         reranked_doc = doc.copy()
+#         reranked_doc["rerank_score"] = float(score)
+#         reranked_docs.append(reranked_doc)
+
+#     return reranked_docs

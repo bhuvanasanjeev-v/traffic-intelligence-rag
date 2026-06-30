@@ -9,4 +9,3 @@ Current Question:
 Rewrite the current question so it is completely self-contained.
 
 Only return the rewritten question.
-"""
